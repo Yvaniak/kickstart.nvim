@@ -68,8 +68,10 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   --my setup
+  --todo mettre ça et mes keybinds dans le init.lua du custom comme ça il y aura pas de merge conflicts possible 
   "christoomey/vim-tmux-navigator",
   "tpope/vim-commentary",
+
   --end of my setup
 
   -- NOTE: First, some plugins that don't require any configuration
@@ -323,6 +325,7 @@ vim.o.termguicolors = true
 -- my keymaps
 vim.keymap.set('n','<S-cr>','O<Esc>')
 vim.keymap.set('n','<cr>','o<Esc>')
+vim.keymap.set('x', '<leader>p', "\"_dP", { desc = 'paste without taking the deleted element in the registries' })
 --
 --
 
