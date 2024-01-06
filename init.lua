@@ -69,17 +69,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   --my setup
   "christoomey/vim-tmux-navigator",
-
-  {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
-        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-      },
-  },
+  --end of my setup
 
   -- NOTE: First, some plugins that don't require any configuration
 
@@ -280,7 +270,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -292,6 +282,7 @@ vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.relativenumber = true
+vim.wo.number = true
 
 vim.o.autochdir = true
 
@@ -327,6 +318,12 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+
+-- my keymaps
+vim.keymap.set('n','<S-cr>','O<Esc>')
+vim.keymap.set('n','<cr>','o<Esc>')
+--
+--
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -439,7 +436,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' , 'java'},
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = true,
@@ -489,15 +486,15 @@ vim.defer_fn(function()
           ['[]'] = '@class.outer',
         },
       },
-      swap = {
-        enable = true,
-        swap_next = {
-          ['<leader>a'] = '@parameter.inner',
-        },
-        swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
-        },
-      },
+      --swap = {
+      --  enable = true,
+      --  swap_next = {
+      --    ['<leader>a'] = '@parameter.inner',
+      --  },
+      --  swap_previous = {
+      --    ['<leader>A'] = '@parameter.inner',
+      --  },
+      --},
     },
   }
 end, 0)
