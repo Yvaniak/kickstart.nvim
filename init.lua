@@ -69,6 +69,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   --my setup
   "christoomey/vim-tmux-navigator",
+  "tpope/vim-commentary",
   --end of my setup
 
   -- NOTE: First, some plugins that don't require any configuration
@@ -284,7 +285,7 @@ vim.o.hlsearch = true
 vim.wo.relativenumber = true
 vim.wo.number = true
 
-vim.o.autochdir = true
+vim.o.autochdir = false
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
