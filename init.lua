@@ -67,6 +67,13 @@ vim.opt.rtp:prepend(lazypath)
 --  You can also configure plugins after the setup call,
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
+  --my setup
+  --todo mettre ça et mes keybinds dans le init.lua du custom comme ça il y aura pas de merge conflicts possible 
+  "christoomey/vim-tmux-navigator",
+  "tpope/vim-commentary",
+
+  --end of my setup
+
   -- NOTE: First, some plugins that don't require any configuration
 
   -- Git related plugins
@@ -266,7 +273,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -274,10 +281,13 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
+vim.wo.relativenumber = true
 vim.wo.number = true
+
+vim.o.autochdir = false
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -311,6 +321,13 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+
+-- my keymaps
+vim.keymap.set('n','<S-cr>','O<Esc>')
+vim.keymap.set('n','<cr>','o<Esc>')
+vim.keymap.set('x', '<leader>p', "\"_dP", { desc = 'paste without taking the deleted element in the registries' })
+--
+--
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
@@ -423,7 +440,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' , 'java'},
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -478,15 +495,15 @@ vim.defer_fn(function()
           ['[]'] = '@class.outer',
         },
       },
-      swap = {
-        enable = true,
-        swap_next = {
-          ['<leader>a'] = '@parameter.inner',
-        },
-        swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
-        },
-      },
+      --swap = {
+      --  enable = true,
+      --  swap_next = {
+      --    ['<leader>a'] = '@parameter.inner',
+      --  },
+      --  swap_previous = {
+      --    ['<leader>A'] = '@parameter.inner',
+      --  },
+      --},
     },
   }
 end, 0)
