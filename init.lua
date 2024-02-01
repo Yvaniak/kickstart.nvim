@@ -323,8 +323,8 @@ vim.o.termguicolors = true
 -- [[ Basic Keymaps ]]
 
 -- my keymaps
-vim.keymap.set('n','<S-cr>','O<Esc>')
-vim.keymap.set('n','<cr>','o<Esc>')
+vim.keymap.set('n','<leader><S-cr>','O<Esc>')
+vim.keymap.set('n','<leader><cr>','o<Esc>')
 vim.keymap.set('x', '<leader>p', "\"_dP", { desc = 'paste without taking the deleted element in the registries' })
 --
 --
