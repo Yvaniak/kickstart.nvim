@@ -1,9 +1,7 @@
-return{
-  "folke/todo-comments.nvim",
+return {
+  'folke/todo-comments.nvim',
   dependencies = {
-    "nvim-lua/plenary.nvim",         -- required
+    'nvim-lua/plenary.nvim', -- required
   },
-  opts = {
-
-  }
+  opts = {},
 }
