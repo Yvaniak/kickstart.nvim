@@ -93,12 +93,10 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
-
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
-
 
 -- Make line numbers default
 vim.opt.number = true
@@ -108,7 +106,6 @@ vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
-
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -164,11 +161,11 @@ vim.opt.scrolloff = 10
 --  See `:help vim.keymap.set()`
 
 -- my keymaps
-vim.keymap.set('n','<leader>G',':Neogit<cr>', { desc = 'Open Mini Files'})
-vim.keymap.set('n','<leader>f',':lua MiniFiles.open()<cr>', { desc = 'Open Mini Files'})
-vim.keymap.set('n','<leader><S-cr>','O<Esc>')
-vim.keymap.set('n','<leader><cr>','o<Esc>')
-vim.keymap.set('x', '<leader>p', "\"_dP", { desc = 'paste without taking the deleted element in the registries' })
+vim.keymap.set('n', '<leader>G', ':Neogit<cr>', { desc = 'Open Mini Files' })
+vim.keymap.set('n', '<leader>f', ':lua MiniFiles.open()<cr>', { desc = 'Open Mini Files' })
+vim.keymap.set('n', '<leader><S-cr>', 'O<Esc>')
+vim.keymap.set('n', '<leader><cr>', 'o<Esc>')
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'paste without taking the deleted element in the registries' })
 -- fin my keymaps
 
 -- Clear highlights on search when pressing <Esc> in normal mode
@@ -241,12 +238,11 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  
-  --my setup
-  --todo mettre ça et mes keybinds dans le init.lua du custom comme ça il y aura pas de merge conflicts possible 
-  "christoomey/vim-tmux-navigator",
-  "tpope/vim-commentary",
 
+  --my setup
+  --todo mettre ça et mes keybinds dans le init.lua du custom comme ça il y aura pas de merge conflicts possible
+  'christoomey/vim-tmux-navigator',
+  'tpope/vim-commentary',
 
   --end of my setup
 
@@ -479,7 +475,6 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
@@ -529,7 +524,6 @@ require('lazy').setup({
             mode = mode or 'n'
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
-
 
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
@@ -727,7 +721,6 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
-
       },
     },
   },
@@ -863,7 +856,6 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
-
     end,
   },
 
