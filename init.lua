@@ -620,13 +620,14 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
-        -- gopls = {},
-        pyright = {},
-        rust_analyzer = {},
-        eslint = {},
-        lua_ls = {},
-        nixd = {},
+        -- clangd = {},
+        -- -- gopls = {},
+        -- pyright = {},
+        -- rust_analyzer = {},
+        -- eslint = {},
+        -- lua_ls = {},
+        -- nixd = {},
+        -- jedi_language_server = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -659,12 +660,13 @@ require('lazy').setup({
       --
       --  You can press `g?` for help in this menu.
       -- require('mason').setup()
-      require'lspconfig'.clangd.setup{}
-      require'lspconfig'.pyright.setup{}
-      require'lspconfig'.rust_analyzer.setup{}
-      require'lspconfig'.eslint.setup{}
-      require'lspconfig'.lua_ls.setup{}
-      require'lspconfig'.nixd.setup{}
+      -- require'lspconfig'.clangd.setup{}
+      -- require'lspconfig'.pyright.setup{}
+      -- require'lspconfig'.rust_analyzer.setup{}
+      -- require'lspconfig'.eslint.setup{}
+      -- require'lspconfig'.lua_ls.setup{}
+      -- require'lspconfig'.nixd.setup{}
+      -- require'lspconfig'.jedi_language_server.setup{}
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
@@ -728,7 +730,7 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
       },
     },
   },
