@@ -906,7 +906,10 @@ require('lazy').setup({
       end
 
       --perso
-      statusline.section_filename({ trunc_width = 500 })
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_filename = function()
+        return '%F%m%r'
+      end
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
