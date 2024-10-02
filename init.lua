@@ -166,6 +166,19 @@ vim.keymap.set('n', '<leader>m', ':lua MiniFiles.open()<cr>', { desc = 'Open Min
 vim.keymap.set('n', '<leader><S-cr>', 'O<Esc>')
 vim.keymap.set('n', '<leader><cr>', 'o<Esc>')
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'paste without taking the deleted element in the registries' })
+
+vim.g["diagnostics_active"] = true
+function Toggle_diagnostics()
+  if vim.g.diagnostics_active then
+    vim.g.diagnostics_active = false
+    vim.diagnostic.enable(false)
+  else
+    vim.g.diagnostics_active = true
+    vim.diagnostic.enable()
+  end
+end
+
+vim.keymap.set('n', '<leader>xd', Toggle_diagnostics, { noremap = true, silent = true, desc = "Toggle vim diagnostics" })
 -- fin my keymaps
 
 -- Clear highlights on search when pressing <Esc> in normal mode
